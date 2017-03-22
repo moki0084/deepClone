@@ -1,0 +1,26 @@
+{
+  "name": "deepclone",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack",
+    "dev": "webpack --config webpack.config-dev.js --watch",
+    "test": "mocha-webpack --webpack-config webpack.config-test.js \"index.test.js\""
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "babel-core": "^6.18.2",
+    "babel-loader": "^6.2.8",
+    "babel-plugin-transform-es2015-typeof-symbol": "^6.18.0",
+    "babel-plugin-transform-runtime": "^6.15.0",
+    "babel-preset-latest": "^6.16.0",
+    "babel-runtime": "^6.20.0",
+    "core-js": "^2.4.1",
+    "mocha": "^3.2.0",
+    "mocha-webpack": "^0.7.0",
+    "webpack": "^1.13.3",
+    "webpack-node-externals": "^1.5.4"
+  }
+}
