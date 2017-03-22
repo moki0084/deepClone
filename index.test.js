@@ -125,10 +125,20 @@ describe('clone', function () {
         }, cTObj2);
     });
 
-    // it('quote deep clone',function(){
-    //     let quoteA= {a:0}
-    //     quoteA.s = quoteA;
-    //     var quoteB = deepClone(quoteA);
-    //     assert.equal(quoteA, quoteB);
-    // })
+    it('Circular deep clone',function(){
+        let quoteA= {a:0}
+        quoteA.s = quoteA;
+        var quoteB = deepClone(quoteA);
+        assert.notEqual(quoteB,quoteA)
+        assert.equal(quoteB.s, quoteB);
+
+        let quoteC = {}; 
+        let quoteD = quoteC;
+        for(let i = 0; i < 1000000; i++) {
+            quoteC.s = {};
+            quoteC = quoteC.s
+        }
+        let quoteE = deepClone(quoteD);
+        assert.notEqual(quoteE.s, quoteE);
+    })
 });

@@ -16,6 +16,7 @@
     clone
         √ simple clone
         √ simple deep clone
+        √ Circular deep clone
 
 ### param
 
