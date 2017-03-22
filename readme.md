@@ -17,6 +17,8 @@
         √ simple clone
         √ simple deep clone
         √ Circular deep clone
+        √ deep clone maxDeep
+
 
 ### param
 

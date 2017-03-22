@@ -82,9 +82,9 @@ describe('clone', function () {
             a: 4,
             b: 3
         }, {
-            a: 4,
-            b: 3
-        }], cTArr2);
+                a: 4,
+                b: 3
+            }], cTArr2);
 
         // obj1
         let tobj1 = {
@@ -125,20 +125,37 @@ describe('clone', function () {
         }, cTObj2);
     });
 
-    it('Circular deep clone',function(){
-        let quoteA= {a:0}
+    it('Circular deep clone', function () {
+        let quoteA = { a: 0 }
         quoteA.s = quoteA;
         var quoteB = deepClone(quoteA);
-        assert.notEqual(quoteB,quoteA)
+        assert.notEqual(quoteB, quoteA)
         assert.equal(quoteB.s, quoteB);
 
-        let quoteC = {}; 
+        let quoteC = {};
         let quoteD = quoteC;
-        for(let i = 0; i < 1000000; i++) {
+        for (let i = 0; i < 1000000; i++) {
             quoteC.s = {};
             quoteC = quoteC.s
         }
         let quoteE = deepClone(quoteD);
         assert.notEqual(quoteE.s, quoteE);
+
+    })
+
+    it('deep clone maxDeep', function () {
+        let quoteA = { a: 0 }
+        let quoteB = { b: { c: quoteA } };
+        let quoteC = deepClone(quoteB, 1);
+        let quoteD = deepClone(quoteB, 2);
+
+        let quoteE = deepClone(quoteB, 4);
+        quoteA.a = 35
+
+        assert.deepEqual({ b: { c: quoteA } }, quoteC);
+        assert.deepEqual({ b: { c: quoteA } }, quoteD);
+        assert.notDeepEqual({ b: { c: quoteA } }, quoteE);
+        
+
     })
 });

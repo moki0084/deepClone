@@ -43,7 +43,7 @@ let clone = function clone(obj, maxDeep, stack = new Map(), deepStack = []) {
 
     deepStack.push(null);
     if (deepStack.length >= maxDeep) {
-        return;
+        return obj;
     }
 
     if (isArray(obj)) {

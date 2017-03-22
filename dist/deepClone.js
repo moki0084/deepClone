@@ -119,7 +119,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	    deepStack.push(null);
 	    if (deepStack.length >= maxDeep) {
-	        return;
+	        return obj;
 	    }
 	
 	    if (isArray(obj)) {
